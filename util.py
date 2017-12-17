@@ -48,7 +48,7 @@ def imap_async(fn, iterable, max_workers=None):
     '''
     max_workers = max_workers or (os.cpu_count() or 1) * 5
     stream = iter(iterable)
-    with ThreadPoolExecutor() as pool:
+    with ThreadPoolExecutor(max_workers) as pool:
         futures = [pool.submit(fn, datum) for datum in islice(stream, 0, max_workers)]
         for datum in stream:
             result, futures = futures[0].result(), futures[1:]

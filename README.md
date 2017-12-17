@@ -8,6 +8,9 @@ own library. 'parsing.py' contains a tool to read dicom images into numpy object
 the results of those operations in a training pipeline environment, and 'dataset.py' offers a tool to batch iterate
 through epochs of data.
 
+Before running any verification code, the dataset should be dowloaded and extracted to a directory in this project
+named 'data'.
+
 To verify the parsing system, it can be executed directly or call parsing.verify_parsing(). It should parse specific
 datums in the dataset, verify the results fit the desired schema and offer visualizations of the resulting data so that
 the label can be inspected against the input.
